@@ -50,9 +50,8 @@ def draw_multiline_text(gui: imgui.GUI, text: str):
     for line in text.split("\n"):
         gui.text(line)
 
-def draw_page_buttons(gui: imgui.GUI, total_items: int) -> Tuple[int, int]:
+def draw_page_buttons(gui: imgui.GUI, total_items: int):
     global current_page
-    global lines_per_page
     num_pages = (total_items // lines_per_page) + 1
     gui.text(f"| {current_view} - Page {current_page} / {num_pages} {' '*extra_padding} |")
     if gui.button("Next page") and current_page < num_pages:
@@ -60,6 +59,7 @@ def draw_page_buttons(gui: imgui.GUI, total_items: int) -> Tuple[int, int]:
     if gui.button("Previous page") and current_page > 1:
         current_page -= 1
 
+def get_bounds_of_items_shown(total_items: int) -> Tuple[int, int]:
     start = lines_per_page * (current_page - 1)
     end = lines_per_page * (current_page)
     if end >= total_items:
@@ -71,7 +71,8 @@ def draw_view_picker(gui: imgui.GUI):
     global current_page
     for view in ("Symbols", "Greek letters", "Other"):
         if gui.button(view):
-            current_page, current_view = 1, view
+            current_page = 1
+            current_view = view
 
 
 @imgui.open(y=0, software=app.platform == "linux")
@@ -89,6 +90,7 @@ def gui_maths_help(gui: imgui.GUI):
             draw_multiline_text(gui, sn55_help_text)
 
     else:
+        items = []
         if current_view == "Symbols":
             items = list(registry.lists["user.tex_symbols"][0].keys())
             items = sorted(items)
@@ -100,12 +102,13 @@ def gui_maths_help(gui: imgui.GUI):
         elif current_view == "Other":
             items = [c.rule.rule for c in context.commands.values()]
 
-        else:
-            items = []
+        draw_page_buttons(gui, len(items))
+        gui.text("")
 
-        start, end = draw_page_buttons(gui, len(items))
+        start, end = get_bounds_of_items_shown(len(items))
         for i in range(start, end):
             gui.text(items[i])
+        gui.text("")
 
     draw_view_picker(gui)
     if gui.button("Close"):
