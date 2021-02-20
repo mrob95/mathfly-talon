@@ -1,5 +1,6 @@
 app: scinoteb.exe
 -
+tag(): user.maths
 {user.tex_symbols}:
     key(ctrl:down)
     insert(tex_symbols)
@@ -9,13 +10,12 @@ matrix <number> by <number>:
     key(f10)
     sleep(50ms)
     key(i down:8 enter)
-    insert(number)
+    insert(number_1)
     key(tab)
-    insert(number)
+    insert(number_2)
     key(enter)
 
-greek {user.greek_letters}:
-    key("ctrl-g {greek_letters}")
+greek {user.greek_letters}: key("ctrl-g {greek_letters}")
 
 fraction: key(ctrl-f)
 over: key(ctrl-shift-left ctrl-f)
@@ -48,7 +48,7 @@ save as: key(f10 f down:5 enter)
 print file: key(ctrl-p)
 export document: key(f10 f down:7 enter)
 page preview: key(f10 f down:17 enter)
-body math: key(alt-2 down enter)
+body (math | maths): key(alt-2 down enter)
 body text: key(alt-2 down:2 enter)
 (begin | insert) [bulleted] list: key(alt-1 down:2 enter)
 (begin | insert) numbered list: key(alt-1 down:4 enter)
@@ -70,7 +70,7 @@ insert (heading | title) four: key(alt-2 down:9 enter)
 insert (heading | title) five: key(alt-2 down:10 enter)
 evaluate: key(ctrl-e)
 evaluate numerically: key(f10 c down enter)
-toggle math: key(ctrl-m)
+toggle (math | maths): key(ctrl-m)
 toggle text: key(ctrl-t)
 label above: key(f10 i down:11 enter a enter)
 label below: key(f10 i down:11 enter b enter)

@@ -7,7 +7,8 @@ ctx.matches = r"""
 app: scinoteb.exe
 """
 
-sn55_greek_letters = {
+ctx.lists["user.greek_letters"] = {
+    # Lowercase
     "alpha": "a",
     "beater": "b",
     "gamma": "g",
@@ -31,9 +32,14 @@ sn55_greek_letters = {
     "chi": "q",
     "sigh": "c",
     "omega": "w",
-}
-
-ctx.lists["user.greek_letters"] = {
-    **sn55_greek_letters,
-    **{f"big {k}": v.title() for k, v in sn55_greek_letters.items()}
+    "gamma": "g",
+    # Capitals
+    "big delta": "D",
+    "big lambda": "L",
+    "big pie": "P",
+    "big sigma": "S",
+    "big upsilon": "U",
+    "big phi": "F",
+    "big sigh": "C",
+    "big omega": "W",
 }

@@ -1,5 +1,6 @@
 app: LyX.exe
 -
+tag(): user.maths
 {user.tex_symbols}:
     key(\)
     insert(tex_symbols)
@@ -8,31 +9,29 @@ greek {user.greek_letters}:
     key(\)
     insert(greek_letters)
     key(space)
-<number>:
-    insert(number)
-<number> {user.mathfly_fractions}:
+<number> {user.maths_fractions}:
     key(alt-m f)
     insert(number)
     key(down)
-    insert(mathfly_fractions)
+    insert(maths_fractions)
     key(right)
 
 matrix one by <number>:
-    key("alt-m [")
+    key(alt-m [)
     insert("\\array ")
-    key("alt-m c i")
+    key(alt-m c i)
     repeat(number-2)
 matrix <number> by one:
-    key("alt-m [")
+    key(alt-m [)
     insert("\\array ")
-    key("alt-m w i")
+    key(alt-m w i)
     repeat(number-2)
 matrix <number> by <number>:
-    key("alt-m [")
+    key(alt-m [)
     insert("\\array ")
-        key("alt-m w i")
+        key(alt-m w i)
     repeat(number_1-2)
-        key("alt-m c i")
+        key(alt-m c i)
     repeat(number_2-2)
 
 add matrix row: key(alt-m w i)
@@ -40,7 +39,8 @@ add matrix row: key(alt-m w i)
 add matrix column: key(alt-m c i)
 (delete | remove) matrix column: key(alt-m c d)
 
-check: key(escape end enter ctrl-m)
+square root: key(alt-m s)
+generic root: key(alt-m r)
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
 (super script | to the power): key(^)
@@ -49,9 +49,9 @@ squared: key(^ 2 right)
 cubed: key(^ 3 right)
 inverse: key(^ - 1 right)
 
-(prekris | parens | brackets): key(alt-m ()
-(brax | square brackets): key(alt-m [)
-curly [brackets]: key(alt-m {)
+brackets: key(alt-m ()
+square brackets: key(alt-m [)
+curly brackets: key(alt-m {)
 absolute: key(alt-m |)
 
 accent hat: key(alt-m h)
@@ -67,20 +67,10 @@ summation:
     key(down)
     insert("\\sum ")
     key(down)
-(summation | sum) to N:
-    insert("\\stackrelthree ")
-    key(n down)
-    insert("\\sum ")
-    key(down)
 blank product: "\\prod "
 product:
     insert("\\stackrelthree ")
     key(down)
-    insert("\\prod ")
-    key(down)
-product to N:
-    insert("\\stackrelthree ")
-    key(n down)
     insert("\\prod ")
     key(down)
 limit:
@@ -121,10 +111,10 @@ natural numbers:
     insert("\\mathbb N")
     key(right)
 
-text roman     : "\\mathrm "
-text bold      : "\\mathbf "
+text roman: "\\mathrm "
+text bold: "\\mathbf "
 text sans serif: "\\mathsf "
-text italic    : "\\mathit "
+text italic: "\\mathit "
 text typewriter: "\\mathtt "
 text (beebee|blackboard bold | blackboard): "\\mathbb "
 
@@ -134,7 +124,7 @@ text (beebee|blackboard bold | blackboard): "\\mathbb "
 new file: key(ctrl-n)
 open file: key(ctrl-o)
 save as: key(ctrl-shift-s)
-math mode: key(ctrl-m)
+(math | maths) mode: key(ctrl-m)
 display mode: key(ctrl-shift-m)
 normal mode: key(alt-p s)
 view PDF: key(ctrl-r)
@@ -149,20 +139,20 @@ insert (in line formula | in line): key(alt-i h i)
 insert (numbered formula): key(alt-i h n)
 insert (display formula | display): key(alt-i h d)
 insert equation array: key(alt-i h e)
-insert (AMS align environment | AMS align): key(alt-i h a)
-insert AMS align at [environment]: key(alt-i h t)
-insert AMS flalign [environment]: key(alt-i h f)
-insert (AMS gathered environment | AMS gather): key(alt-i h g)
-insert (AMS multline [environment]| multiline): key(alt-i h m)
-insert array [environment]: key(alt-i h y)
-insert (cases [environment] | piecewise): key(alt-i h c)
-insert (aligned [environment] | align): key(alt-i h l)
-insert aligned at [environment]: key(alt-i h v)
-insert gathered [environment]: key(alt-i h h)
-insert split [environment]: key(alt-i h s)
-insert delimiters: key(alt-i h r)
-insert matrix: key(alt-i h x)
-insert macro: key(alt-i h o)
+# insert (AMS align environment | AMS align): key(alt-i h a)
+# insert AMS align at [environment]: key(alt-i h t)
+# insert AMS flalign [environment]: key(alt-i h f)
+# insert (AMS gathered environment | AMS gather): key(alt-i h g)
+# insert (AMS multline [environment]| multiline): key(alt-i h m)
+# insert array [environment]: key(alt-i h y)
+# insert (cases [environment] | piecewise): key(alt-i h c)
+# insert (aligned [environment] | align): key(alt-i h l)
+# insert aligned at [environment]: key(alt-i h v)
+# insert gathered [environment]: key(alt-i h h)
+# insert split [environment]: key(alt-i h s)
+# insert delimiters: key(alt-i h r)
+# insert matrix: key(alt-i h x)
+# insert macro: key(alt-i h o)
 #
 insert [bulleted] list: key(alt-p b)
 insert numbered list: key(alt-p e)

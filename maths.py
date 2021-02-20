@@ -2,7 +2,7 @@ from talon import Context, Module
 
 fractions = {
     "half": "2",
-    "halves": "2",
+    "halve": "2",
     "third": "3",
     "quarter": "4",
     "fourth": "4",
@@ -17,8 +17,10 @@ fractions = {
 mod = Module()
 ctx = Context()
 
-mod.list("mathfly_fractions", "Fractions")
-ctx.lists["user.mathfly_fractions"] = {
+mod.tag("maths")
+
+mod.list("maths_fractions", "Fractions")
+ctx.lists["user.maths_fractions"] = {
     **fractions,
     **{f"{k}s": v for k, v in fractions.items()},
 }

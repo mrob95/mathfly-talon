@@ -23,10 +23,10 @@ math mode:
     key(\)
     "math-container"
     key(enter)
-{user.mathfly_fractions}:
+{user.maths_fractions}:
     key(shift-left \)
     "frac"
     key(enter down)
-    insert(mathfly_fractions)
+    insert(maths_fractions)
     key(right)
     sleep(100ms)

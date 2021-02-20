@@ -3,18 +3,13 @@ from talon import Context, Module
 mod = Module()
 ctx = Context()
 
-mod.list("greek_letters", desc="TeX greek letters")
 # Defined in sn55, lyx.py
+mod.list("greek_letters", desc="TeX greek letters")
 mod.list("tex_symbols", desc="TeX mathematical symbols")
 
 ctx.lists["user.tex_symbols"] = {
     # operators
-    "fraction": "frac",
-    # "summation": "sum",
     "product": "prod",
-    "limit": "lim",
-    "square root": "sqrt",
-    "generic root": "root",
     "integral": "int",
     "double integral": "iint",
     "triple integral": "iiint",
@@ -24,8 +19,6 @@ ctx.lists["user.tex_symbols"] = {
     "plus or minus": "pm",
     "partial": "partial",
     "infinity": "infty",
-    "nice fraction": "nicefrac",
-    "binomial": "binom",
     "vector nabla": "nabla",
     # accents
     "accent hat": "hat",
@@ -62,9 +55,6 @@ ctx.lists["user.tex_symbols"] = {
     "supremum": "sup",
     "probability": "Pr",
     # relations
-    "there exists": "exists",
-    "member of": "in",
-    "for all": "forall",
     "not equal to": "neq",
     "greater than or equal to": "geq",
     "less than or equal to": "leq",
@@ -78,6 +68,9 @@ ctx.lists["user.tex_symbols"] = {
     "logic and": "land",
     "logic or": "lor",
     "logic not": "lnot",
+    "logic exists": "exists",
+    "logic member": "in",
+    "logic for all": "forall",
     #
     "left arrow": "leftarrow",
     "right arrow": "rightarrow",

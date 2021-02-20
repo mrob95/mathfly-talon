@@ -7,7 +7,8 @@ ctx.matches = r"""
 app: LyX.exe
 """
 
-greek_letters = {
+ctx.lists["user.greek_letters"] = {
+    # Lowercase
     "alpha": "alpha",
     "beater": "beta",
     "gamma": "gamma",
@@ -31,9 +32,17 @@ greek_letters = {
     "chi": "chi",
     "sigh": "psi",
     "omega": "omega",
+    # Capitals
+    "big gamma": "Gamma",
+    "big delta": "Delta",
+    "big theta": "Theta",
+    "big lambda": "Lambda",
+    "big zee": "Xi",
+    "big pie": "Pi",
+    "big sigma": "Sigma",
+    "big upsilon": "Upsilon",
+    "big phi": "Phi",
+    "big sigh": "Psi",
+    "big omega": "Omega",
 }
 
-ctx.lists["user.greek_letters"] = {
-    **greek_letters,
-    **{f"big {k}": v.title() for k, v in greek_letters.items()}
-}
