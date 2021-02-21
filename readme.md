@@ -12,4 +12,4 @@ Links:
 * [Short video demonstration](https://www.youtube.com/watch?v=7eZ6fMztvwA)
 * [#maths slack channel](https://app.slack.com/client/T7FPSMV8F/C01ETRZNT46)
 * [ma-anwar's version of these configs, with various additions](https://github.com/ma-anwar/mathfly)
-
+* [Mathfly site](https://mathfly.org)

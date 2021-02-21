@@ -1,4 +1,5 @@
 app: LyX.exe
+app: LyX
 -
 tag(): user.maths
 {user.tex_symbols}:
