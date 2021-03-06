@@ -75,7 +75,7 @@ def draw_view_picker(gui: imgui.GUI):
             current_view = view
 
 
-@imgui.open(y=0, software=app.platform == "linux")
+@imgui.open(y=0)
 def gui_maths_help(gui: imgui.GUI):
     maths_contexts = [context for context in registry.active_contexts() if "user.maths" in context.tags]
     if not maths_contexts:
