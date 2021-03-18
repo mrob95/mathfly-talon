@@ -1,4 +1,4 @@
-from talon import *
+from talon import Module, Context, imgui, registry
 from typing import Tuple
 
 mod = Module()
