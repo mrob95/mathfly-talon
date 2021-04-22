@@ -17,8 +17,8 @@ insert {user.tex_commands}:
     key(left)
 insert {user.tex_commands_noarg}:
     insert("\\{tex_commands_noarg} ")
-greek {user.tex_greek_letters}:
-    insert("\\{tex_greek_letters} ")
+greek {user.greek_letters}:
+    insert("\\{greek_letters} ")
 symbol {user.tex_symbols}:
     insert("\\{tex_symbols} ")
 
