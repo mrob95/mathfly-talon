@@ -24,4 +24,4 @@ symbol {user.tex_symbols}:
 
 
 template {user.tex_templates}:
-    insert(tex_templates)
+    user.paste(tex_templates)

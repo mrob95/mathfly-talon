@@ -3,8 +3,12 @@ from talon import Context, Module
 mod = Module()
 ctx = Context()
 
-mod.list("tex_document_classes", desc="TeX document classes")
+ctx.matches = r"""
+title: /\.tex/
+and not app: scinoteb.exe
+"""
 
+mod.list("tex_document_classes", desc="TeX document classes")
 ctx.lists["user.tex_document_classes"] = {
     "article": "article",
     "beamer": "beamer",
@@ -73,7 +77,7 @@ ctx.lists["user.tex_environments"] = {
 mod.list("tex_commands", desc="TeX commands")
 ctx.lists["user.tex_commands"] = {
     "author": "author",
-    "[add] bib resource": "addbibresource",
+    "add bib resource": "addbibresource",
     "caption": "caption",
     "chapter": "chapter",
     "simple citation": "cite",
@@ -101,14 +105,14 @@ ctx.lists["user.tex_commands"] = {
     "title": "title",
     "use theme": "usetheme",
     # Accents
-    "grave [accent]": "`",
-    "acute [accent]": "'",
-    "dot [accent]": ".",
-    "breve [accent]": "u",
-    "(circumflex | hat)": "^",
-    "(umlaut | dieresis)": '"',
-    "(tilde | squiggle)": "~",
-    "(macron | bar)": "=",
+    "accent grave": "`",
+    "accent acute": "'",
+    "accent dot": ".",
+    "accent breve": "u",
+    "circumflex": "^",
+    "umlaut": '"',
+    "tilde": "~",
+    "macron": "=",
 }
 
 mod.list("tex_commands_noarg", desc="TeX commands without arguments")
@@ -117,7 +121,7 @@ ctx.lists["user.tex_commands_noarg"] = {
     "column": "column{0.5\\textwidth}",
     "footnote mark": "footnotemark[]",
     "horizontal line": "hline",
-    "(lah | lay) tech": "LaTeX~ ",
+    "lay tech": "LaTeX~ ",
     "line break": "linebreak",
     "item": "item",
     "make title": "maketitle",
@@ -133,6 +137,44 @@ ctx.lists["user.tex_commands_noarg"] = {
     "vertical line": "vline",
 }
 
+ctx.lists["user.greek_letters"] = {
+    # Lowercase
+    "alpha": "alpha",
+    "beater": "beta",
+    "gamma": "gamma",
+    "delta": "delta",
+    "epsilon": "varepsilon",
+    "zita": "zeta",
+    "eater": "eta",
+    "theta": "theta",
+    "iota": "iota",
+    "kappa": "kappa",
+    "lambda": "lambda",
+    "mu": "mu",
+    "new": "nu",
+    "zee": "xi",
+    "pie": "pi",
+    "row": "rho",
+    "sigma": "sigma",
+    "tau": "tau",
+    "upsilon": "upsilon",
+    "phi": "phi",
+    "chi": "chi",
+    "sigh": "psi",
+    "omega": "omega",
+    # Capitals
+    "big gamma": "Gamma",
+    "big delta": "Delta",
+    "big theta": "Theta",
+    "big lambda": "Lambda",
+    "big zee": "Xi",
+    "big pie": "Pi",
+    "big sigma": "Sigma",
+    "big upsilon": "Upsilon",
+    "big phi": "Phi",
+    "big sigh": "Psi",
+    "big omega": "Omega",
+}
 
 mod.list("tex_templates", desc="TeX templates")
 ctx.lists["user.tex_templates"] = {
@@ -195,5 +237,3 @@ ctx.lists["user.tex_templates"] = {
 \end{table}
 '''
 }
-# mod.list("tex_packages", desc="TeX packages")
-# ctx.lists["user.tex_packages"] = {}
