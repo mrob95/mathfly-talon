@@ -1,4 +1,4 @@
-from talon import Module, Context
+from talon import Module, Context, actions
 
 mod = Module()
 ctx = Context()
@@ -43,3 +43,30 @@ ctx.lists["user.greek_letters"] = {
     "big sigh": "C",
     "big omega": "W",
 }
+
+@ctx.action_class("user")
+class Actions:
+    def maths_greek_letter(letter: str):
+        actions.key(f"ctrl-g {letter}")
+
+    def maths_tex_symbol(symbol: str):
+        actions.key("ctrl:down")
+        actions.insert(symbol)
+        actions.key("ctrl:up")
+
+    def maths_matrix(rows: int, columns: int):
+        actions.key("f10")
+        actions.sleep("50ms")
+        actions.key("i down:8 enter")
+        actions.insert(rows)
+        actions.key("tab")
+        actions.insert(columns)
+        actions.key("enter")
+
+    def maths_fraction():
+        actions.key("ctrl-f")
+
+    def maths_begin_superscript():
+        actions.key("ctrl-h")
+    def maths_begin_subscript():
+        actions.key("ctrl-l")

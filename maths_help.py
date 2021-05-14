@@ -81,7 +81,8 @@ def gui_maths_help(gui: imgui.GUI):
     if not maths_contexts:
         gui.text("Maths context not currently focused")
         return
-    context = maths_contexts[0]
+    # [maths.talon, app.talon]
+    context = maths_contexts[1]
 
     if current_view == "Start":
         if "lyx" in str(context):
@@ -100,7 +101,10 @@ def gui_maths_help(gui: imgui.GUI):
             items = [f"greek {g}" for g in greek_letters]
 
         elif current_view == "Other":
-            items = [c.rule.rule for c in context.commands.values()]
+            items = []
+            for con in maths_contexts:
+                for c in con.commands.values():
+                    items.append(c.rule.rule)
 
         draw_page_buttons(gui, len(items))
         gui.text("")

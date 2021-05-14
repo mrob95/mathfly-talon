@@ -1,30 +1,7 @@
 app: scinoteb.exe
 -
 tag(): user.maths
-{user.tex_symbols}:
-    key(ctrl:down)
-    insert(tex_symbols)
-    key(ctrl:up)
 
-matrix <number> by <number>:
-    key(f10)
-    sleep(50ms)
-    key(i down:8 enter)
-    insert(number_1)
-    key(tab)
-    insert(number_2)
-    key(enter)
-
-greek {user.greek_letters}: key("ctrl-g {greek_letters}")
-
-fraction: key(ctrl-f)
-over: key(ctrl-shift-left ctrl-f)
-(super script | to the power): key(ctrl-h)
-sub script: key(ctrl-l)
-squared: key(ctrl-h 2 right)
-cubed: key(ctrl-h 3 right)
-inverse: key(ctrl-h - 1 right)
-inverse half: key(ctrl-h - ctrl-f 1 down 2 right right)
 (parens | parentheses | prens): key(ctrl-0)
 (squares | square brackets): key(ctrl-6)
 absolute: key(ctrl-\)
@@ -32,12 +9,13 @@ norma: key(ctrl-shift-\)
 chi squared: key(ctrl-g q ctrl-h 2 right)
 (radical | square root): key(ctrl-r)
 summation: key(ctrl-7)
+
 accent hat: key(ctrl-^)
 accent tilde: key(ctrl-~)
 accent dot: key(ctrl-.)
 accent double dot: key(ctrl-\")
 accent bar: key(ctrl-_)
-accent arrow: key(ctrl--)
+accent vector: key(ctrl--)
 #
 # Program control
 #

@@ -2,38 +2,7 @@ app: LyX.exe
 app: LyX
 -
 tag(): user.maths
-{user.tex_symbols}:
-    key(\)
-    insert(tex_symbols)
-    key(space)
-greek {user.greek_letters}:
-    key(\)
-    insert(greek_letters)
-    key(space)
-<number> {user.maths_fractions}:
-    key(alt-m f)
-    insert(number)
-    key(down)
-    insert(maths_fractions)
-    key(right)
 
-matrix one by <number>:
-    key(alt-m [)
-    insert("\\array ")
-    key(alt-m c i)
-    repeat(number-2)
-matrix <number> by one:
-    key(alt-m [)
-    insert("\\array ")
-    key(alt-m w i)
-    repeat(number-2)
-matrix <number> by <number>:
-    key(alt-m [)
-    insert("\\array ")
-        key(alt-m w i)
-    repeat(number_1-2)
-        key(alt-m c i)
-    repeat(number_2-2)
 
 add matrix row: key(alt-m w i)
 (delete | remove) matrix row: key(alt-m w d)
@@ -42,13 +11,6 @@ add matrix column: key(alt-m c i)
 
 square root: key(alt-m s)
 generic root: key(alt-m r)
-fraction: key(alt-m f)
-over: key(shift-left alt-m f down)
-(super script | to the power): key(^)
-sub script: key(_)
-squared: key(^ 2 right)
-cubed: key(^ 3 right)
-inverse: key(^ - 1 right)
 
 brackets: key(alt-m ()
 square brackets: key(alt-m [)
@@ -74,18 +36,14 @@ product:
     key(down)
     insert("\\prod ")
     key(down)
+blank limit: "\\lim "
 limit:
     insert("\\underset \\lim ")
     key(down)
-blank limit: "\\lim "
 label above: "\\overset "
 label below: "\\underset "
-prime:
-    insert("^\\prime ")
-    key(right)
-degrees:
-    insert("^\\circ ")
-    key(right)
+prime: user.maths_superscript("\\prime ")
+degrees: user.maths_superscript("\\degrees ")
 exponential:
     insert("\\exp ")
     key(alt-m ()
@@ -140,20 +98,6 @@ insert (in line formula | in line): key(alt-i h i)
 insert (numbered formula): key(alt-i h n)
 insert (display formula | display): key(alt-i h d)
 insert equation array: key(alt-i h e)
-# insert (AMS align environment | AMS align): key(alt-i h a)
-# insert AMS align at [environment]: key(alt-i h t)
-# insert AMS flalign [environment]: key(alt-i h f)
-# insert (AMS gathered environment | AMS gather): key(alt-i h g)
-# insert (AMS multline [environment]| multiline): key(alt-i h m)
-# insert array [environment]: key(alt-i h y)
-# insert (cases [environment] | piecewise): key(alt-i h c)
-# insert (aligned [environment] | align): key(alt-i h l)
-# insert aligned at [environment]: key(alt-i h v)
-# insert gathered [environment]: key(alt-i h h)
-# insert split [environment]: key(alt-i h s)
-# insert delimiters: key(alt-i h r)
-# insert matrix: key(alt-i h x)
-# insert macro: key(alt-i h o)
 #
 insert [bulleted] list: key(alt-p b)
 insert numbered list: key(alt-p e)
