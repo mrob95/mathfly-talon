@@ -27,7 +27,21 @@ over:
 
 # Sub/Superscript
 (super script | to the power): user.maths_begin_superscript()
-inverse: user.maths_superscript("-1")
-squared: user.maths_superscript("2")
-cubed: user.maths_superscript("3")
 sub script: user.maths_begin_subscript()
+{user.maths_common_powers}: user.maths_superscript(maths_common_powers)
+
+#
+soup <user.maths_item>:
+    user.maths_begin_superscript()
+    user.maths_insert_item(maths_item)
+    user.maths_end_superscript()
+
+
+integral from <user.maths_item> to <user.maths_item>:
+    user.maths_tex_symbol("int")
+    user.maths_begin_subscript()
+    user.maths_insert_item(maths_item_1)
+    user.maths_end_subscript()
+    user.maths_begin_superscript()
+    user.maths_insert_item(maths_item_2)
+    user.maths_end_superscript()
