@@ -1,5 +1,6 @@
+app: lyx
 app: LyX.exe
-app: LyX
+app: LyX for Windows
 -
 tag(): user.maths
 

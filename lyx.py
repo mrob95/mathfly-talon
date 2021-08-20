@@ -4,7 +4,9 @@ mod = Module()
 ctx = Context()
 
 ctx.matches = r"""
+app: lyx
 app: LyX.exe
+app: LyX for Windows
 """
 
 ctx.lists["user.greek_letters"] = {
