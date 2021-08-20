@@ -6,6 +6,7 @@ ctx = Context()
 ctx.matches = r"""
 app: lyx
 app: LyX.exe
+app: LyX2.3.exe
 app: LyX for Windows
 """
 
