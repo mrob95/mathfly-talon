@@ -1,4 +1,4 @@
-from talon import Module, Context, actions
+from talon import Module, Context, actions, app
 
 mod = Module()
 ctx = Context()
@@ -49,6 +49,15 @@ ctx.lists["user.greek_letters"] = {
     "big omega": "Omega",
 }
 
+MODIFIER = "ctrl" if app.platform == "mac" else "alt"
+
+@mod.action_class
+class Actions:
+    def lyx_control_sequence(type: str, keys: str):
+        """Press a sequence of keys prefixed with a lyx control chord (ctrl-{type} on mac, alt-{type} otherwise)"""
+        actions.key(f"{MODIFIER}-{type} {keys}")
+
+
 @ctx.action_class("user")
 class Actions:
     def maths_greek_letter(letter: str):
@@ -58,15 +67,15 @@ class Actions:
         actions.insert(f"\\{symbol} ")
 
     def maths_matrix(rows: int, columns: int):
-        actions.key("alt-m [")
+        actions.user.lyx_control_sequence("m", "[")
         actions.user.maths_tex_symbol("array")
         for _ in range(rows-1):
-            actions.key("alt-m w i")
+            actions.user.lyx_control_sequence("m", "w i")
         for _ in range(columns-1):
-            actions.key("alt-m c i")
+            actions.user.lyx_control_sequence("m", "c i")
 
     def maths_fraction():
-        actions.key("alt-m f")
+        actions.user.lyx_control_sequence("m", "f")
 
     def maths_begin_superscript():
         actions.key("^")
