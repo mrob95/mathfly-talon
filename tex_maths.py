@@ -8,6 +8,7 @@ mod.list("greek_letters", desc="TeX greek letters")
 mod.list("tex_symbols", desc="TeX mathematical symbols")
 
 ctx.lists["user.tex_symbols"] = {
+    "binomial": "binom",
     # operators
     "product": "prod",
     "integral": "int",
@@ -96,4 +97,3 @@ ctx.lists["user.tex_symbols"] = {
     "intersection": "cap",
     "union": "cup",
 }
-

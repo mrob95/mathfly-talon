@@ -78,6 +78,6 @@ class Actions:
         actions.user.lyx_control_sequence("m", "f")
 
     def maths_begin_superscript():
-        actions.key("^")
+        actions.user.lyx_control_sequence("m", "e")
     def maths_begin_subscript():
-        actions.key("_")
+        actions.user.lyx_control_sequence("m", "x")
